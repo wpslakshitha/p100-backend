@@ -1,21 +1,24 @@
-import type { Media, User } from '@/payload-types'
+import type { Media, User, Blog } from '@/payload-types'
 import { RequiredDataFromCollectionSlug } from 'payload'
 
 export type PostArgs = {
   heroImage: Media
   blockImage: Media
   author: User
+  blog: Blog
 }
 
 export const post1: (args: PostArgs) => RequiredDataFromCollectionSlug<'posts'> = ({
   heroImage,
   blockImage,
   author,
+  blog,
 }) => {
   return {
     slug: 'digital-horizons',
     _status: 'published',
     authors: [author],
+    blog: blog.id,
     content: {
       root: {
         type: 'root',

@@ -5,11 +5,13 @@ export const post3: (args: PostArgs) => RequiredDataFromCollectionSlug<'posts'> 
   heroImage,
   blockImage,
   author,
+  blog,
 }) => {
   return {
     slug: 'dollar-and-sense-the-financial-forecast',
     _status: 'published',
     authors: [author],
+    blog: blog.id,
     content: {
       root: {
         type: 'root',
